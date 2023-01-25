@@ -36,6 +36,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           reverseCurve: Interval(0.6, 1, curve: Curves.ease),
           parent: _animatedcontroller));
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _animatedcontroller.dispose();
+    _abilityanimatedcontroller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var bloc = BlocProvider.of<PokemonBloc>(context);
     var size = MediaQuery.of(context).size;
